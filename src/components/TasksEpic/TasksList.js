@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import TaskTile from './TaskTile';
 
-const TasksList = ({ tasks, onChangeStatus, onDeleteTask }) => {
+const TasksList = ({ tasks, onChangeStatus }) => {
     const onDeleteTask = (id) => {
         tasks.filter(task => task.id === id)
     }
@@ -13,6 +13,7 @@ const TasksList = ({ tasks, onChangeStatus, onDeleteTask }) => {
             title={item.title}
             completed={item.completed}
             onChangeStatus={onChangeStatus}
+            onDeleteTask={onDeleteTask}
         >
         </TaskTile>
     );
