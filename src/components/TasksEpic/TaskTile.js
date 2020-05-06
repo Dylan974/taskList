@@ -1,20 +1,28 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableHighlight } from 'react-native';
 
-const TaskTile = ({ id, title, completed, onChangeStatus }) => {
+const TaskTile = ({ id, title, completed, onChangeStatus, onDeleteTask }) => {
+    const _onPressDelete = () => {
+        onDeleteTask(id);
+    };
+
     return (
-        <TouchableHighlight onPress={() => onChangeStatus(id)}>
-            <View style={styles.container}>
-                <View style={styles.subcontainer}>
+        <View style={styles.container}>
+            <View style={styles.subcontainer}>
+                <TouchableHighlight onPress={() => onChangeStatus(id)}>
                     <Image
                         style={styles.icon}
                         source={completed ? require('../../../assets/icon_check.png') : require('../../../assets/icon_circle.png')}
                     />
                     <Text style={[styles.title, { color: completed ? 'lightgrey' : 'black' }]}>{title}</Text>
-                </View>
-                <Image style={styles.icon} source={require('../../../assets/icon_bin.png')} />
+                </TouchableHighlight>
             </View>
-        </TouchableHighlight>
+            <Image
+                style={styles.icon}
+                source={require('../../../assets/icon_bin.png')}
+                onPress={_onPressDelete}
+            />
+        </View>
     );
 }
 
