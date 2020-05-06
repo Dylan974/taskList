@@ -7,7 +7,7 @@ const TasksList = ({ tasks }) => {
 
     return (
         <FlatList
-            data={props.tasks}
+            data={tasks}
             renderItem={_renderItem}
             keyExtractor={item => item.title}
         />
