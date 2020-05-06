@@ -1,15 +1,17 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableHighlight } from 'react-native';
 
-const TaskTile = ({ title }) => {
+const TaskTile = ({ id, title, onChangeStatus }) => {
     return (
-        <View style={styles.container}>
-            <View style={styles.subcontainer}>
-                <Image style={styles.icon} source={require('../../../assets/icon_check.png')} />
-                <Text style={styles.title}>{title}</Text>
+        <TouchableHighlight onPress={() => onChangeStatus(id)}>
+            <View style={styles.container}>
+                <View style={styles.subcontainer}>
+                    <Image style={styles.icon} source={require('../../../assets/icon_check.png')} />
+                    <Text style={styles.title}>{title}</Text>
+                </View>
+                <Image style={styles.icon} source={require('../../../assets/icon_bin.png')} />
             </View>
-            <Image style={styles.icon} source={require('../../../assets/icon_bin.png')} />
-        </View>
+        </TouchableHighlight>
     );
 }
 
