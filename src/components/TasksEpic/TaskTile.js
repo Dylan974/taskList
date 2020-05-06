@@ -10,7 +10,7 @@ const TaskTile = ({ title }) => {
             </View>
             <Image style={styles.icon} source={require('../../../assets/icon_bin.png')} />
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
@@ -30,6 +30,6 @@ const styles = StyleSheet.create({
     title: {
         marginLeft: 30
     }
-})
+});
 
 export default TaskTile;

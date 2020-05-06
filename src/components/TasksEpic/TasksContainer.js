@@ -6,9 +6,13 @@ import TaskForm from './TaskForm';
 function TasksContainer(props) {
     const [tasks, setTasks] = useState([{ title: 'Nouvelle tâche', completed: false }]);
 
+    const onAddTask = (title) => {
+        setTasks([{ title, completed: false }, ...tasks]);
+    }
+
     return (
         <View>
-            <TaskForm />
+            <TaskForm onAddTask={onAddTask} />
             <TasksList tasks={tasks} />
         </View>
     );

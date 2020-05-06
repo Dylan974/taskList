@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, Button } from 'react-native';
 
-const TaskForm = ({ }) => {
+const TaskForm = ({ onAddtask }) => {
     const [title, setTitle] = useState('');
     const _onChangetext = value => {
         setTitle(value);
+    };
+
+    const _onPressButton = () => {
+        if (title.length > 0) {
+            onAddtask(title);
+            setTitle('');
+        }
     };
 
     return (
@@ -14,7 +21,7 @@ const TaskForm = ({ }) => {
             </View>
             <Button onPress={_onPressButton} title='Ajouter' color='green' />
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
