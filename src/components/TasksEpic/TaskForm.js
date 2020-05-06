@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, Button } from 'react-native';
 
-const TaskForm = ({ onAddtask }) => {
+const TaskForm = ({ onAddTask }) => {
     const [title, setTitle] = useState('');
     const _onChangetext = value => {
         setTitle(value);
@@ -9,7 +9,7 @@ const TaskForm = ({ onAddtask }) => {
 
     const _onPressButton = () => {
         if (title.length > 0) {
-            onAddtask(title);
+            onAddTask(title);
             setTitle('');
         }
     };
