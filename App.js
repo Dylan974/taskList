@@ -2,11 +2,13 @@ import React from 'react';
 import { StyleSheet, SafeAreaView, Platform } from 'react-native';
 
 import Header from './src/components/_Shared/Header';
+import TasksContainer from './src/components/TasksEpic/TasksContainer';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <Header />
+      <TasksContainer />
     </SafeAreaView>
   );
 }
