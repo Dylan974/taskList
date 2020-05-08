@@ -33,8 +33,8 @@ function TasksContainer(props) {
 
         tasks.forEach(task => {
             if (task.completed) counter++;
-            return counter;
-        })
+        });
+        return counter;
     };
 
     return (
