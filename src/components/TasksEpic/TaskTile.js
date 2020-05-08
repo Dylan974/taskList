@@ -2,10 +2,6 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableHighlight } from 'react-native';
 
 const TaskTile = ({ id, title, completed, onChangeStatus, onDeleteTask }) => {
-    const _onPressDelete = () => {
-        onDeleteTask(id);
-    };
-
     return (
         <TouchableHighlight onPress={() => onChangeStatus(id)}>
             <View style={styles.container}>
@@ -19,7 +15,7 @@ const TaskTile = ({ id, title, completed, onChangeStatus, onDeleteTask }) => {
                 <Image
                     style={styles.icon}
                     source={require('../../../assets/icon_bin.png')}
-                    onPress={_onPressDelete}
+                    onPress={() => onDeleteTask(id)}
                 />
             </View>
         </TouchableHighlight>

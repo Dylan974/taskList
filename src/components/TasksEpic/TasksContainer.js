@@ -10,7 +10,7 @@ function TasksContainer(props) {
         setTasks([{ id: new Date().getTime(), title, completed: false }, ...tasks]);
     }
 
-    const deleteTask = (id) => {
+    const onDeleteTask = (id) => {
         const newTasks = [...tasks];
         newTasks.filter(task => task.id === id);
         setTasks(newTasks);
@@ -31,7 +31,7 @@ function TasksContainer(props) {
     return (
         <View>
             <TaskForm onAddTask={onAddTask} />
-            <TasksList tasks={tasks} onChangeStatus={onChangeStatus} deleteTask={deleteTask} />
+            <TasksList tasks={tasks} onChangeStatus={onChangeStatus} onDeleteTask={onDeleteTask} />
         </View>
     );
 }

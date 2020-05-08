@@ -2,10 +2,7 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import TaskTile from './TaskTile';
 
-const TasksList = ({ tasks, onChangeStatus, deleteTask }) => {
-    const onDeleteTask = (id) => {
-        deleteTask(id);
-    }
+const TasksList = ({ tasks, onChangeStatus, onDeleteTask }) => {
 
     const _renderItem = ({ item }) => (
         <TaskTile
