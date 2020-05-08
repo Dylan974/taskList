@@ -3,8 +3,8 @@ import { View, Text, Image, StyleSheet, TouchableHighlight } from 'react-native'
 
 const TaskTile = ({ id, title, completed, onChangeStatus, onDeleteTask }) => {
     return (
-        <TouchableHighlight onPress={() => onChangeStatus(id)}>
-            <View style={styles.container}>
+        <View style={styles.container}>
+            <TouchableHighlight onPress={() => onChangeStatus(id)}>
                 <View style={styles.subcontainer}>
                     <Image
                         style={styles.icon}
@@ -12,13 +12,13 @@ const TaskTile = ({ id, title, completed, onChangeStatus, onDeleteTask }) => {
                     />
                     <Text style={[styles.title, { color: completed ? 'lightgrey' : 'black' }]}>{title}</Text>
                 </View>
-                <Image
-                    style={styles.icon}
-                    source={require('../../../assets/icon_bin.png')}
-                    onPress={() => onDeleteTask(id)}
-                />
-            </View>
-        </TouchableHighlight>
+            </TouchableHighlight>
+            <Image
+                style={styles.icon}
+                source={require('../../../assets/icon_bin.png')}
+                onPress={() => onDeleteTask(id)}
+            />
+        </View>
     );
 }
 

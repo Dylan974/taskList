@@ -11,6 +11,7 @@ function TasksContainer(props) {
     }
 
     const onDeleteTask = (id) => {
+        console.log('on delete');
         const newTasks = [...tasks];
         newTasks.filter(task => task.id === id);
         setTasks(newTasks);
