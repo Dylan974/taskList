@@ -4,17 +4,17 @@ import TasksList from './TasksList';
 import TaskForm from './TaskForm';
 
 function TasksContainer(props) {
-    const [tasks, setTasks] = useState([{ id: new Date().getTime(), title: 'Nouvelle tâche', completed: false }]);
+    const [tasks, setTasks] = useState([{ id: new Date().getTime().toString(), title: 'Nouvelle tâche', completed: false }]);
 
     const onAddTask = (title) => {
-        setTasks([{ id: new Date().getTime(), title, completed: false }, ...tasks]);
+        setTasks([{ id: new Date().getTime().toString(), title, completed: false }, ...tasks]);
     }
 
     const onDeleteTask = (id) => {
         console.log('on delete');
-        const newTasks = [...tasks];
-        newTasks.filter(task => task.id === id);
-        setTasks(newTasks);
+        const newTasks = tasks.filter(task => task.id != id);
+        console.log(newTasks);
+        setTasks([...newTasks]);
     }
 
     const onChangeStatus = (id) => {
